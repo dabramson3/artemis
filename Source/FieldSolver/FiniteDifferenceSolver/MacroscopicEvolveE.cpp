@@ -252,7 +252,7 @@ void FiniteDifferenceSolver::MacroscopicEvolveECartesian (
                                      ) - beta * jy(i, j, k);
             },
 
-            [=] AMREX_GPU_DEVICE (int i, int j, int k){
+            [=] AMREX_GPU_DEVICE (int i, int j, int k){// compute Ez field
 #ifdef AMREX_USE_EB
                 // Skip field push if this cell is fully covered by embedded boundaries
                 if (lz(i,j,k) <= 0) return;
